@@ -40,12 +40,22 @@ app.get("/",async (req, res)=>{
 res.send("Hello Node,js !");
 });
 
-//Get all articles
+//Get all courses
 const courses= require("./courses");
 
 app.get("/courses", async(req,res)=>{
     console.log(courses);
       let result =  await courses (req.headers);
+     res.send(result);
+    });
+	
+
+//Get all revies
+const reviews= require("./reviews");
+
+app.get("/reviews", async(req,res)=>{
+    console.log(reviews);
+      let result =  await reviews (req.headers);
      res.send(result);
     });
 
