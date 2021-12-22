@@ -37,7 +37,7 @@ app.use(cors(corsOptions));
 
 //REST API Call
 app.get("/",async (req, res)=>{
-res.send("Hello Node,js !");
+res.send("Hello Node,js ! Change the authorization header in the courses&reviews. Put in your Authorization token from udemy affiliate api-2.0 ");
 });
 
 //Get all courses
