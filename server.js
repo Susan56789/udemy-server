@@ -11,7 +11,7 @@ const pino = require('express-pino-logger')();
 //import courses from './courses'
 //import *  as courses from './courses';
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 const app = express();
 
@@ -35,10 +35,23 @@ var corsOptions={
 
 app.use(cors(corsOptions));
 
+
+//Get all reviews
+const reviews= require("./reviews");
+
+app.get("/reviews", async(req,res)=>{
+    console.log(reviews);
+      let result =  await reviews (req.headers);
+     res.send(result);
+    });
+
+
+
 //REST API Call
 app.get("/",async (req, res)=>{
-res.send("Hello Node,js ! Change the authorization header in the courses&reviews. Put in your Authorization token from udemy affiliate api-2.0 ");
-});
+res.send("Hello Node,js ! Change the authorization header in the courses&reviews. Put in your Authorization token from udemy affiliate api-2.0 ")
+})
+
 
 //Get all courses
 const courses= require("./courses");
@@ -50,14 +63,6 @@ app.get("/courses", async(req,res)=>{
     });
 	
 
-//Get all reviews
-const reviews= require("./reviews");
-
-app.get("/reviews", async(req,res)=>{
-    console.log(reviews);
-      let result =  await reviews (req.headers);
-     res.send(result);
-    });
 
 
     app.listen(PORT, () =>{
