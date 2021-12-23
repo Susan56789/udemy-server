@@ -50,10 +50,10 @@ app.get("/courses", async(req,res)=>{
     });
 	
 
-//Get all revies
+//Get all reviews
 const reviews= require("./reviews");
 
-app.get("/courses/reviews", async(req,res)=>{
+app.get("/reviews", async(req,res)=>{
     console.log(reviews);
       let result =  await reviews (req.headers);
      res.send(result);

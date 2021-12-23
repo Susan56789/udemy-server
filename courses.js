@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-    url = 'https://www.udemy.com/api-2.0/courses/?price=price-free&has_coding_exercises=True&has_simple_quiz=True';
+    url = 'https://www.udemy.com/api-2.0/courses';
 
 
          module.exports=  async  function courses() {
