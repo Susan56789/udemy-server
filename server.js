@@ -53,7 +53,7 @@ app.get("/courses", async(req,res)=>{
 //Get all revies
 const reviews= require("./reviews");
 
-app.get("/reviews", async(req,res)=>{
+app.get("/courses/reviews", async(req,res)=>{
     console.log(reviews);
       let result =  await reviews (req.headers);
      res.send(result);
